@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:planet_info/config/secrets.dart';
 import 'package:planet_info/home_pages/menu_page.dart';
 
 class NasaApi extends StatefulWidget {
@@ -20,13 +21,13 @@ class _NasaApiState extends State<NasaApi> {
 @override
 void initState() {
   super.initState();
-  // Get today's date in the correct format
+ 
   String todayDate = "${DateTime.now().year}-${DateTime.now().month.toString().padLeft(2, '0')}-${DateTime.now().day.toString().padLeft(2, '0')}";
   fetchAstronomyImage(todayDate);
 }
 Future<void> fetchAstronomyImage(String date) async {
   final response = await http.get(
-    Uri.parse('https://api.nasa.gov/planetary/apod?api_key=Tdp0gRd1WCQME88NsOU57wApcg85IMencaDR0Z0f&date=$date'),
+    Uri.parse('https://api.nasa.gov/planetary/apod?api_key=$nasaApiKey&date=$date'),
   );
 
   if (response.statusCode == 200) {
@@ -44,7 +45,7 @@ Future<void> _selectDate(BuildContext context) async {
   final DateTime? picked = await showDatePicker(
     context: context,
     initialDate: DateTime.now(),
-    firstDate: DateTime(1995, 6, 16), // APOD start date
+    firstDate: DateTime(1995, 6, 16), 
     lastDate: DateTime.now(),
   );
   if (picked != null) {
