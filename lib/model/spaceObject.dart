@@ -12,14 +12,24 @@ class SpaceObject {
   final String? distanceFromParent;
   final String? surfaceTemperature;
   final String? imagePath;
+  final String? inDepth;
+  final int moonsCount;
+  final List<String> gallery;
+  final List<String> explore;
+  final String? distanceFromSun;
 
-  SpaceObject({
+  SpaceObject( {
     required this.id,
     required this.name,
     required this.type,
     required this.category,
     required this.shortDesc,
     required this.overviewDesc,
+    required this.gallery,
+    required this.explore,
+    required this.inDepth,
+    required this.moonsCount,
+    this.distanceFromSun,
     this.parent,
     this.radius,
     this.mass,
@@ -27,6 +37,7 @@ class SpaceObject {
     this.distanceFromParent,
     this.surfaceTemperature,
     this.imagePath,
+    
   });
 
   factory SpaceObject.fromFirestore(String id, Map<String, dynamic> data) {
@@ -44,6 +55,11 @@ class SpaceObject {
       distanceFromParent: data['distanceFromParent'],
       surfaceTemperature: data['surfaceTemperature'],
       imagePath: data['imagePath'],
+       moonsCount: (data['moonsCount'] ?? 0) as int,
+      inDepth : data['inDepth'] ?? '',
+      gallery: List<String>.from(data['gallery'] ?? []),
+      explore: List<String>.from(data['explore'] ?? []),
+      distanceFromSun:data['distanceFromSun']
     );
   }
 }

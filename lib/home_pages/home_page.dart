@@ -1,11 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:planet_info/config/secrets.dart';
 import 'package:planet_info/home_pages/in_pages/search_result_page.dart';
 import 'package:planet_info/home_pages/menu_page.dart';
 import 'package:planet_info/home_pages/space_list_screen.dart';
 import 'package:planet_info/home_pages/space_search.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  
+@override
+void initState() {
+  super.initState();
+  _initSecrets();
+}
+
+Future<void> _initSecrets() async {
+  await loadSecrets();
+}
+
 
   @override
   Widget build(BuildContext context) {

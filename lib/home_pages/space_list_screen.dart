@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planet_info/home_pages/in_pages/space_details.dart';
 import 'package:planet_info/home_pages/spaceCard.dart';
 import 'package:planet_info/model/spaceObject.dart';
 import 'package:planet_info/space_service.dart';
@@ -62,7 +63,7 @@ class _SpaceListScreenState extends State<SpaceListScreen> {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
               }
-
+        
               if (snapshot.hasError) {
                 return Center(
                   child: Text(
@@ -71,17 +72,17 @@ class _SpaceListScreenState extends State<SpaceListScreen> {
                   ),
                 );
               }
-
+        
               if (!snapshot.hasData || snapshot.data!.isEmpty) {
                 return const Center(
                   child: Text("No data found",
                       style: TextStyle(color: Colors.white)),
                 );
               }
-
+        
               final items = snapshot.data!;
-
-       
+        
+               
               if (tabs[selectedIndex] == "solar") {
                 final solar = items.first;
                 return SingleChildScrollView(
@@ -109,8 +110,8 @@ class _SpaceListScreenState extends State<SpaceListScreen> {
                   ),
                 );
               }
-
-    
+        
+            
               return GridView.builder(
                 padding: const EdgeInsets.all(16),
                 gridDelegate:
