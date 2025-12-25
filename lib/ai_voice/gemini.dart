@@ -10,6 +10,9 @@ final _player = AudioPlayer();
 
 
 Future<String> askGemini(String prompt) async {
+   if (geminiApiKey.isEmpty) {
+    return "Gemini API key not loaded yet.";
+  }
   try {
     final model = GenerativeModel(
       model: 'gemini-2.5-flash',
@@ -56,11 +59,14 @@ Future<void> speakWithElevenLabs(String text) async {
     },
     body: jsonEncode({
       "text": text,
-      "model_id": "eleven_turbo_v2",
+      "model_id": "eleven_multilingual_v2",
     }),
   );
 
   final contentType = res.headers['content-type'];
+
+  print("Status: ${res.statusCode}");
+  print("Headers: ${res.headers}");
 
   if (res.statusCode != 200 ||
       contentType == null ||

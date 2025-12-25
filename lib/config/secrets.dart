@@ -10,7 +10,7 @@ Future<void> loadSecrets() async {
       await rootBundle.loadString('assets/secrets.json');
   final Map<String, dynamic> jsonData = json.decode(jsonString);
 
-  geminiApiKey = jsonData['GEMINI_API_KEY'];
-  elevenLabsApiKey = jsonData['ELEVENLABS_API_KEY'];
-  nasaApiKey = jsonData['NASA_API_KEY'];
+  geminiApiKey = jsonData['geminiAPiKey'];
+  elevenLabsApiKey = jsonData['elevenLabsApiKey'];
+  nasaApiKey = jsonData['nasaApi'];
 }

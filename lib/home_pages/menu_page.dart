@@ -25,7 +25,12 @@ class _MenuPageState extends State<MenuPage> {
         child: Text('Planet_info'),
       ),
       ListTile(
-        title: const Text('Home'),
+        title: Row(
+          children: [
+            Icon(Icons.home_rounded),
+            const Text('Home'),
+          ],
+        ),
           selected: _selectedIndex == 0,
         onTap: () {
            Navigator.push(
@@ -37,7 +42,12 @@ class _MenuPageState extends State<MenuPage> {
         },
       ),
       ListTile(
-        title: const Text('News'),
+        title: Row(
+          children: [
+            Icon(Icons.newspaper_rounded),
+            const Text('News'),
+          ],
+        ),
         onTap: () {
             Navigator.push(
     context,

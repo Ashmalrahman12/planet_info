@@ -46,7 +46,7 @@ class SpaceDetails extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(12, 100, 12, 12),
                 child: Column(
                   children: [
-                     Text(space.name),
+                     Text(space.name ,style: const TextStyle(color: Colors.white,fontSize: 40,fontWeight: FontWeight.bold)),
      
                     const SizedBox(height: 12),
                  Expanded(
@@ -67,8 +67,13 @@ class SpaceDetails extends StatelessWidget {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _info('Planet Type', space.type),
-                      _info('Distance', space.distanceFromParent?? '—'),
+                      _info('Type', space.type),
+                        if (space.category == 'planets')
+      _info('Distance', space.distanceFromSun ?? '—'),
+     if (space.category == 'moons')
+      _info('Parent', space.parent ?? '—'),
+      if (space.category == 'stars')
+      _info('Distance', space.distance ?? '—'),
                       _info('Light Time', space.orbitalPeriod?? '—'),
                     ],
                   ),
@@ -79,6 +84,8 @@ class SpaceDetails extends StatelessWidget {
                   const TabBar(
                     isScrollable: true,
                     indicatorColor: Colors.white,
+                    unselectedLabelColor: Colors.white,
+                   labelColor: Colors.deepPurple,
                     tabs: [
                       Tab(text: 'Overview'),
                       Tab(text: 'In Depth'),
@@ -130,23 +137,85 @@ static Widget _info(String title, String value) {
   }
 
    static Widget _numbersTab(SpaceObject space) {
-    final data = {
-      'Radius': space.radius ?? '—',
-      'Mass': space.mass ?? '—',
-      'Temperature': space.surfaceTemperature,
-      'Distance from Sun': space.distanceFromParent,
-    };
-     return ListView(
-      children: data.entries.map((e) {
-        return ListTile(
-          title: Text(e.key, style: const TextStyle(color: Colors.white)),
-          trailing: Text(e.value ?? '—',
-    style: const TextStyle(color: Colors.white70)),
+  switch (space.category) {
+    case 'planets':
+      return _planetNumbers(space);
 
-        );
-      }).toList(),
-    );
-   }
+    case 'moons':
+      return _moonNumbers(space);
+
+    case 'stars':
+      return _starNumbers(space);
+
+    case 'universe':
+    case 'solar':
+      return _systemNumbers(space);
+
+    default:
+      return const Center(
+        child: Text('No numerical data available',
+            style: TextStyle(color: Colors.white70)),
+      );
+  }
+}
+static Widget _planetNumbers(SpaceObject space) {
+  final data = {
+    'Planet Type': space.planetType,
+    'Distance from Sun': space.distanceFromSun,
+    'Radius': space.radius,
+    'Mass': space.mass,
+    'Gravity': space.gravity,
+    'Temperature': space.surfaceTemperature,
+    'Rotation Period': space.rotationPeriod,
+    'Moon Count':space.moonsCount,
+  };
+
+  return _numbersList(data);
+}
+static Widget _moonNumbers(SpaceObject space) {
+  final data = {
+    'Parent Planet': space.parent,
+    'Distance from Parent': space.distanceFromParent,
+    'Orbital Period': space.orbitalPeriod,
+    'Radius': space.radius,
+  };
+
+  return _numbersList(data);
+}
+static Widget _starNumbers(SpaceObject space) {
+  final data = {
+    'Distance from Earth': space.distance,
+    'Radius': space.radius,
+    'Surface Temperature': space.surfaceTemperature,
+  };
+
+  return _numbersList(data);
+}
+static Widget _systemNumbers(SpaceObject space) {
+  return const Padding(
+    padding: EdgeInsets.all(16),
+    child: Text(
+      'This system is best understood through its structure and evolution rather than numerical measurements.',
+      style: TextStyle(color: Colors.white70, fontSize: 16),
+    ),
+  );
+}
+
+static Widget _numbersList(Map<String, Object?> data) {
+  return ListView(
+    children: data.entries.map((e) {
+      return ListTile(
+        title: Text(e.key, style: const TextStyle(color: Colors.white,fontSize: 20)),
+        trailing: Text(
+          e.value?.toString() ?? '—',
+          style: const TextStyle(color: Colors.white70,fontSize: 20),
+        ),
+      );
+    }).toList(),
+  );
+}
+
+
   static Widget _galleryTab(SpaceObject space) {
     return GridView.builder(
       padding: const EdgeInsets.all(8),

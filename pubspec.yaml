@@ -84,24 +84,63 @@ flutter:
      - assets/planets/neptune_2.png
      - assets/planets/neptune.jpg
      - assets/planets/saturn.png
+     - assets/planets/Saturn_2.png
+     - assets/planets/Jupiter.jpeg
      - assets/planets/Jupiter_2.png
      - assets/planets/uranus.webp
+     - assets/planets/Uranus_2.png
+     - assets/planets/uranus_3.jpg
      - assets/planets/venus.webp
+     - assets/planets/Venus_2.png
 
      - assets/stars/sun.jpeg
      - assets/stars/Sun_2.png
+     - assets/stars/betelgeuse.jpg
+     - assets/stars/betelgeuse_2.jpeg
+     - assets/stars/betelgeuse_3.jpg
+     - assets/stars/pistol_star.jpg
+     - assets/stars/pistol_star_2.webp
+     - assets/stars/sirius.jpg
+     - assets/stars/sirius_2.jpg
+     - assets/stars/sirius_3.jpg
+     - assets/stars/vega.jpg
+     - assets/stars/vega_2.jpg
+     - assets/stars/vega_3.jpg
 
      - assets/universe/milkyway.jpg
      - assets/universe/milkyway_2.jpeg
      - assets/universe/andromeda.jpeg
      - assets/universe/andromeda_2.jpeg
      - assets/universe/andromeda_3.jpeg
+     - assets/universe/observable_universe.webp
      
      - assets/moons/moon.jpg
      - assets/moons/moon_2.jpg
      - assets/moons/io.jpeg
      - assets/moons/io_3.jpeg
      - assets/moons/io_2.jpeg
+     - assets/moons/Callisto.jpg
+     - assets/moons/Callisto_2.jpg
+     - assets/moons/Callisto_3.jpg
+     - assets/moons/Enceladus.jpg
+     - assets/moons/Enceladus_2.jpg
+     - assets/moons/Enceladus_3.jpg
+     - assets/moons/Europa.jpg
+     - assets/moons/Europa_2.jpg
+     - assets/moons/Europa_3.jpg
+     - assets/moons/Ganymede.jpg
+     - assets/moons/Ganymede_2.jpg
+     - assets/moons/Ganymede_3.jpg
+     - assets/moons/Miranda.jpg
+     - assets/moons/Miranda_2.jpg
+     - assets/moons/Miranda_3.jpg
+     - assets/moons/Titan.jpg
+     - assets/moons/Titan_2.jpg
+     - assets/moons/Titan_3.jpg
+     - assets/moons/Triton.jpg
+     - assets/moons/Triton_2.jpg
+     - assets/moons/Triton_3.jpg
+
 
      - assets/solar_system.jpeg
 

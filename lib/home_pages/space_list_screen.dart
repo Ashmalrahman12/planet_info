@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:planet_info/home_pages/in_pages/space_details.dart';
 import 'package:planet_info/home_pages/spaceCard.dart';
 import 'package:planet_info/model/spaceObject.dart';
 import 'package:planet_info/space_service.dart';
@@ -39,7 +38,7 @@ class _SpaceListScreenState extends State<SpaceListScreen> {
                   decoration: BoxDecoration(
                     color: selected
                         ? Colors.blue.withOpacity(0.8)
-                        : Colors.white.withOpacity(0.25), // ✅ transparent
+                        : Colors.white.withOpacity(0.25), 
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(

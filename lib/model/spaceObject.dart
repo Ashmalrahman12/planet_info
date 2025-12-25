@@ -8,11 +8,15 @@ class SpaceObject {
   final String? parent;    
   final String? radius;
   final String? mass;
+  final String? gravity;
   final String? orbitalPeriod;
+  final String? rotationPeriod;
   final String? distanceFromParent;
   final String? surfaceTemperature;
+  final String? distance;
   final String? imagePath;
   final String? inDepth;
+  final String? planetType;
   final int moonsCount;
   final List<String> gallery;
   final List<String> explore;
@@ -29,9 +33,13 @@ class SpaceObject {
     required this.explore,
     required this.inDepth,
     required this.moonsCount,
+    this.planetType,
+    this.distance,
+    this.rotationPeriod,
     this.distanceFromSun,
     this.parent,
     this.radius,
+    this.gravity,
     this.mass,
     this.orbitalPeriod,
     this.distanceFromParent,
@@ -51,6 +59,10 @@ class SpaceObject {
       parent: data['parent'],
       radius: data['radius'],
       mass: data['mass'],
+      gravity:data['gravity']?? '',
+      distance:data['distance']?? '',
+      planetType:data['planetType']?? '',
+      rotationPeriod:data['rotationPeriod']?? '',
       orbitalPeriod: data['orbitalPeriod'],
       distanceFromParent: data['distanceFromParent'],
       surfaceTemperature: data['surfaceTemperature'],
