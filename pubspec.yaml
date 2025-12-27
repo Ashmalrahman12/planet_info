@@ -146,7 +146,9 @@ flutter:
 
      - assets/background_image.jpg
 
-     - assets/gemini_logo.webp
+     - assets/gemini_logo.png
+     - assets/gemini_icon.webp
+     - assets/Google_Gemini_Logo.png
 
      - assets/secrets.json
 

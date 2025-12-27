@@ -23,7 +23,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
-
+floatingActionButton: FloatingActionButton(onPressed:(){Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => SearchResultPage(query: '', answer: '',)),
+            );} ,
+shape: CircleBorder(),
+backgroundColor: Colors.black,
+            child:Image.asset(
+  'assets/Google_Gemini_Logo.png',
+  width: 30.0,
+  height: 30.0,
+) ,),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

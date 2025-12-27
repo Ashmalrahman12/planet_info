@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:planet_info/home_pages/in_pages/fullscreen_gallery.dart';
 import 'package:planet_info/model/spaceObject.dart';
 
 class SpaceDetails extends StatelessWidget {
@@ -217,22 +218,44 @@ static Widget _numbersList(Map<String, Object?> data) {
 
 
   static Widget _galleryTab(SpaceObject space) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(8),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
-      ),
-      itemCount: space.gallery.length,
-      itemBuilder: (_, i) {
-        return Image.asset(space.gallery[i], fit: BoxFit.cover);
-        
-      }
-     
+  return GridView.builder(
+    padding: const EdgeInsets.all(8),
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      crossAxisSpacing: 8,
+      mainAxisSpacing: 8,
+    ),
+    itemCount: space.gallery.length,
+    itemBuilder: (context, index) {
+      final imagePath = space.gallery[index];
 
-    );
-  }
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => FullScreenGallery(
+                images: space.gallery,
+                initialIndex: index,
+              ),
+            ),
+          );
+        },
+        child: Hero(
+          tag: imagePath,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+
 
   static Widget _explorationTab(SpaceObject space) {
     return ListView.builder(

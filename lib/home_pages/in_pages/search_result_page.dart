@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:chat_bubbles/bubbles/bubble_special_one.dart';
-import 'package:chat_bubbles/message_bars/message_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:planet_info/ai_voice/gemini.dart';
+import 'package:planet_info/home_pages/in_pages/gemini_input_bar.dart';
 import 'package:planet_info/model/spaceObject.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -28,6 +28,8 @@ class _SearchResultPageState extends State<SearchResultPage> {
   bool _isLoading = false;
   late stt.SpeechToText _speech;
   bool _isListening = false;
+
+  final TextEditingController _msgController = TextEditingController();
   
   Future<void> _startVoiceInput() async {
   final available = await _speech.initialize(
@@ -93,13 +95,17 @@ class _SearchResultPageState extends State<SearchResultPage> {
       _isLoading = false;
     });
 
-  
+   await _speech.stop();             
+  await Future.delayed(
+      const Duration(milliseconds: 400));
+
     await speakWithElevenLabs(aiReply);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+           extendBodyBehindAppBar: true,
       appBar: AppBar(title: Text(widget.query)),
       body: Column(
         children: [
@@ -131,20 +137,24 @@ class _SearchResultPageState extends State<SearchResultPage> {
               child: CircularProgressIndicator(),
             ),
 
-          MessageBar(
-            messageBarHintText: "Ask about space…",
-            onSend: _sendMessage,
-            actions: [
-              IconButton(
-  icon: Icon(
-    _isListening ? Icons.mic_off : Icons.mic,
-    color: _isListening ? Colors.red : Colors.black,
+         Align(
+  alignment: Alignment.bottomCenter,
+  child: GeminiGlowingInputBar(
+    controller: _msgController, 
+    isListening: _isListening, 
+    onVoiceTap: _startVoiceInput, 
+    onSend: () {
+   
+      final text = _msgController.text;
+      
+    
+      if (text.trim().isNotEmpty) {
+        _sendMessage(text);
+        _msgController.clear(); 
+      }
+    },
   ),
-  onPressed: _startVoiceInput,
-),
-
-            ],
-          ),
+)
         ],
       ),
     );

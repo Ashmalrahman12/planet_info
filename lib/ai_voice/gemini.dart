@@ -65,8 +65,8 @@ Future<void> speakWithElevenLabs(String text) async {
 
   final contentType = res.headers['content-type'];
 
-  print("Status: ${res.statusCode}");
-  print("Headers: ${res.headers}");
+  print("Status Elevenlabs: ${res.statusCode}");
+  print("Headers Elevenlabs: ${res.headers}");
 
   if (res.statusCode != 200 ||
       contentType == null ||
@@ -76,6 +76,7 @@ Future<void> speakWithElevenLabs(String text) async {
   }
 
   await _player.stop();
+  await _player.setVolume(1.0);
   await _player.play(
     BytesSource(
       Uint8List.fromList(res.bodyBytes),
