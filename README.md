@@ -1,16 +1,18 @@
 # planet_info
 
-A new Flutter project.
 
-## Getting Started
+## 🔐 API Key Setup
+This project requires API keys to run (Gemini, ElevenLabs, NASA).
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. locate the file: `assets/secrets_template.json`
+2. **Rename** it to: `assets/secrets.json`
+3. Open the file and paste your own keys:
+   ```json
+   {
+   "elevenLabsApiKey" :"ELEVENLABS_KEY Here",
+   "geminiAPiKey" : "GEMINI_KEY Here",
+   "nasaApi" :"NASA_KEY Here"
+   }
+   
+📰 if you have a NASA API key, you can unlock News Page 
+   
