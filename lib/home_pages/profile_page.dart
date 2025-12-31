@@ -61,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text('Name: ${user?.displayName ?? 'N/A'}', style: const TextStyle(fontSize: 16, color: Colors.white)),
                                 const SizedBox(height: 8),
                                 Text('Email: ${user?.email ?? 'N/A'}', style: const TextStyle(fontSize: 16, color: Colors.white)),
-                                const SizedBox(height: 8),
+                                // const SizedBox(height: 8),
                                 // Text('UID: ${user?.uid ?? 'N/A'}', style: const TextStyle(fontSize: 12, color: Colors.white70)),
                                 const SizedBox(height: 24),
                                 ElevatedButton.icon(

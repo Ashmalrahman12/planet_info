@@ -25,11 +25,14 @@ dependencies:
   speech_to_text: ^7.3.0
   chat_bubbles: ^1.7.0
   avatar_glow: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_native_splash: ^2.4.1
 
 flutter:
   uses-material-design: true
@@ -44,3 +47,18 @@ flutter:
     - assets/moons/
     - assets/stars/
     - assets/universe/
+    - assets/App logo.png
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/App logo.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/App logo.png"
+
+flutter_native_splash:
+  color: "#1a1a2e"
+  image: assets/App logo.png
+  android: true
+  ios: true
