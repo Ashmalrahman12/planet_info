@@ -12,7 +12,20 @@
           "package_name": "com.example.planet_info"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "305479187272-5rau42fjonp1p4481ahpfsij7etgfiaq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.planet_info",
+            "certificate_hash": "364f9d0c0873b1c9bb40eaf18c3649cdb145a5b8"
+          }
+        },
+        {
+          "client_id": "305479187272-pegi2rp80kund0rbfhb5fhukp6bj4nvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAOZfrkv1NrpcGXjDf4nQXMGRJhks7b6SY"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305479187272-pegi2rp80kund0rbfhb5fhukp6bj4nvh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "305479187272-qsbdo7astoepkfr51angbkujqe9vai5m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.planetInfo"
+              }
+            }
+          ]
         }
       }
     }
